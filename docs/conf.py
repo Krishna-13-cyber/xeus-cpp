@@ -33,3 +33,23 @@ highlight_language = 'c++'
 pygments_style = 'sphinx'
 todo_include_todos = False
 htmlhelp_basename = ''
+
+highlight_language = "C++"
+
+todo_include_todos = True
+
+mathjax_path = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+
+# Add latex physics package
+mathjax3_config = {
+    "loader": {"load": ["[tex]/physics"]},
+    "tex": {"packages": {"[+]": ["physics"]}},
+}
+
+XEUS_CPP_ROOT = os.path.abspath('..')
+html_extra_path = [XEUS_CPP_ROOT + '/build/docs/']
+
+import subprocess
+command = 'mkdir {0}/build; cd {0}/build; cmake ../ -DXEUS_CPP_INCLUDE_DOCS=ON'.format(XEUS_CPP_ROOT)
+subprocess.call(command, shell=True)
+subprocess.call('doxygen {0}/build/docs/doxygen.cfg'.format(XEUS_CPP_ROOT), shell=True)

@@ -5,3 +5,16 @@ channels:
 
 dependencies:
   - breathe
+  # Build dependencies
+  - cmake
+  # Host dependencies
+  - cpp-argparse
+  - xeus-zmq=1.0.2
+  - xeus-dev
+  - zeromq
+  - nlohmann_json
+  - cppzmq
+  - xtl
+  - pugixml
+  - libllvm14
+  - cxxopts

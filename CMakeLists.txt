@@ -106,7 +106,7 @@ if(XEUS_CPP_EMSCRIPTEN_WASM_BUILD)
 endif()
 
 find_package(Clang REQUIRED)
-find_package(argparse REQUIRED)
+find_package(cpp-argparse REQUIRED)
 find_package(pugixml REQUIRED)
 
 # Source files
@@ -226,7 +226,7 @@ macro(xeus_cpp_create_target target_name linkage output_name)
         set(XEUS_CPP_XEUS_TARGET xeus-static)
     endif ()
 
-    target_link_libraries(${target_name} PUBLIC ${XEUS_CPP_XEUS_TARGET} clangInterpreter pugixml argparse::argparse xtl)
+    target_link_libraries(${target_name} PUBLIC ${XEUS_CPP_XEUS_TARGET} clangInterpreter pugixml cpp-argparse::cpp-argparse xtl)
     if (WIN32 OR CYGWIN)
         #
     elseif (APPLE)
@@ -375,3 +375,6 @@ if(XEUS_CPP_EMSCRIPTEN_WASM_BUILD)
             DESTINATION ${CMAKE_INSTALL_BINDIR})
 endif ()
 
+if (XEUS_CPP_INCLUDE_DOCS)
+  add_subdirectory(docs)
+endif()

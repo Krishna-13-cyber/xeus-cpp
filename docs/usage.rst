@@ -61,3 +61,7 @@ And of course widgets
 .. image:: binary.gif
    :alt: widgets_binary
 
+Developers Documentation:
+=========================
+
+Internal documentation can be visited : `here </en/latest/build/html/index.html>`_
